@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ben Shelton - Interactive Resume</title>
+  <style>
+    :root{--bg:#0f111a;--card:#141922;--text:#e9e9f2;--accent:#4cc9f0}
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+    body{font-family:Verdana, sans-serif;background:var(--bg);color:var(--text)}
+    header{padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;background:#0b0e14;}
+    .container{max-width:860px;margin:2rem auto;padding:0 1rem}
+    .row{display:flex;gap:1rem;flex-wrap:wrap}
+    .panel{flex:1 1 320px;background:var(--card);padding:1rem;border-radius:12px}
+    h2{margin:0 0 .5rem}
+    .bar{height:8px;background:#222;border-radius:4px;overflow:hidden}
+    .bar > span{display:block;height:100%;background:var(--accent);width:0}
+    .chip{display:inline-block;padding:.25rem .6rem;margin:0 6px 6px 0;background:#1f1f2a;border-radius:999px}
+    footer{text-align:center;padding:1rem 0;color:#8a90a6}
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Ben Shelton</strong>
+  </header>
+  <main class="container">
+    <section class="row" aria-labelledby="title">
+      <div class="panel" style="min-width:260px;flex:2">
+        <h2 id="title">Resume Overview</h2>
+        <p>Built with semantic sections and progressive disclosure.</p>
+        <div class="bar" aria-label="progress"><span style="width:70%"></span></div>
+        <div style="margin-top:.5rem"><span class="chip">Experience</span><span class="chip">Skills</span><span class="chip">Education</span></div>
+      </div>
+      <div class="panel" style="flex:1;min-width:240px">
+        <h2>Timeline</h2>
+        <ul style="margin:0;padding:0 0 0 1rem;line-height:1.6">
+          <li>Senior UI Engineer</li>
+          <li>Frontend Developer</li>
+          <li>Product Designer</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>© Ben Shelton</footer>
+  <script>
+    // Minimal interactive: a simple theme toggle
+    (function(){
+      let dark=false;const root=document.documentElement; 
+      function toggle(){dark=!dark; root.style.filter=dark?'invert(0)':'invert(1) hue-rotate(180deg)';}
+      document.addEventListener('keydown',e=>{if(e.key==='t')toggle();});
+    })();
+  </script>
+</body>
+</html>
